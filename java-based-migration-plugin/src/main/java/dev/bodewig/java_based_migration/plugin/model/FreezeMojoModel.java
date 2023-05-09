@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-public abstract class FreezeMojoModel extends AbstractMojo { // AbstractMojoExecutorMojo
+public abstract class FreezeMojoModel extends AbstractMojo {
 
 	/**
 	 * The version used to store frozen files and to calculate the base package name

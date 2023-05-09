@@ -6,7 +6,7 @@ The Java Based Migration Maven Plugin is a simple tool to manage migrations of J
 
 * **Freeze (defaultPhase=Deploy):**
 
-  Copy a set of files to a separate project directory, resolve the common package and place them in versioned, named package.
+  Copy a set of files to a separate project directory, resolve the common package and place them in a versioned, named package.
 
   | Configuration option | Description | Default/Required | Example |
   | --- | --- | --- | --- |
