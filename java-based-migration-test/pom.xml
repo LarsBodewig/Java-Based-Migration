@@ -80,6 +80,16 @@
                             <versionRange>[1.0.0,2.0.0]</versionRange>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>jar</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <versionRange>[1.0.0,2.0.0]</versionRange>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

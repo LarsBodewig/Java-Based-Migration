@@ -25,14 +25,13 @@ public class FreezeMojo extends FreezeMojoModel {
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		Log log = this.getLog();
-		Spoon spoon = new Spoon(log);
 		List<File> classesFiles = this.getPersistenceClasses();
 		log.info("Configured " + classesFiles.size() + " classes to freeze");
 		List<File> resourcesFiles = this.getPersistenceResources();
 		log.info("Configured " + resourcesFiles.size() + " resources to freeze");
 		String version = this.getFreezeVersion();
 		log.info("Freezing version " + version);
-		spoon.addClasses(classesFiles);
+		Spoon spoon = new Spoon(log, classesFiles);
 		log.info("Rewriting packages");
 		String normalizedVersion = normalizedFreezeVersion(version);
 		spoon.rewritePackages(normalizedVersion);

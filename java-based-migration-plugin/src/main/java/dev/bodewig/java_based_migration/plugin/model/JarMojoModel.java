@@ -19,12 +19,13 @@ public abstract class JarMojoModel extends AbstractMojo {
 	@Parameter(defaultValue = "migration")
 	protected String classifier;
 
-	/**
-	 * List of fully qualified class names to exclude in the jar, useful for classes
-	 * Spoon does identify but are not actually used
-	 */
-	@Parameter
-	private String[] excludeClasses;
+	// /**
+	// * List of fully qualified class names to exclude in the jar, useful for
+	// classes
+	// * Spoon does identify but are not actually used
+	// */
+	// @Parameter
+	// private String[] excludeClasses;
 
 	/** The filename to be used for the generated archive file. */
 	@Parameter(defaultValue = "${project.build.finalName}")
@@ -34,12 +35,13 @@ public abstract class JarMojoModel extends AbstractMojo {
 	@Parameter(defaultValue = "${project.basedir}/src/migration/")
 	protected File frozenDir;
 
-	/**
-	 * List of fully qualified class names to include in the jar, useful for classes
-	 * Spoon does not identify but are used, e.g. loaded via ClassLoader
-	 */
-	@Parameter
-	private String[] includeClasses;
+	// /**
+	// * List of fully qualified class names to include in the jar, useful for
+	// classes
+	// * Spoon does not identify but are used, e.g. loaded via ClassLoader
+	// */
+	// @Parameter
+	// private String[] includeClasses;
 
 	@Component(role = Archiver.class, hint = "jar")
 	protected JarArchiver jarArchiver;
@@ -54,7 +56,10 @@ public abstract class JarMojoModel extends AbstractMojo {
 	@Parameter(defaultValue = "${session}", readonly = true)
 	protected MavenSession session;
 
-	/** Frozen versions to include in the default maven version range format */
+	/**
+	 * Version range of migrations to include in the default maven version range
+	 * format
+	 */
 	@Parameter(required = true)
 	protected String versionRange;
 }
