@@ -7,10 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class PureJava {
+public class PureJavaExample {
 
 	public static void main(String[] args) throws SQLException {
-		try (Connection con = DriverManager.getConnection("jdbc:h2:mem:")) {
+		try {
+			// workaround for classloader mismatch due to different exec-maven-plugin
+			// executions
+			Class.forName("org.h2.Driver").getConstructor().newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		try (Connection con = DriverManager.getConnection("jdbc:h2:mem:purejava;DB_CLOSE_ON_EXIT=FALSE")) {
 			initialize(con);
 			migrate(con);
 		}

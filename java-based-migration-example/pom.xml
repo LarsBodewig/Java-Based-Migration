@@ -15,6 +15,11 @@
             <artifactId>h2</artifactId>
             <version>2.1.214</version>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>9.20.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -95,12 +100,23 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
+                        <id>pure-java</id>
                         <goals>
                             <goal>java</goal>
                         </goals>
                         <phase>test</phase>
                         <configuration>
-                            <mainClass>my.db.migration.example.PureJava</mainClass>
+                            <mainClass>my.db.migration.example.PureJavaExample</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>flyway</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <mainClass>my.db.migration.example.FlywayExample</mainClass>
                         </configuration>
                     </execution>
                 </executions>
